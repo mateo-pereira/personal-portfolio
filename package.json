@@ -1,0 +1,33 @@
+{
+  "name": "personal-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NEXT_TELEMETRY_DISABLED=1 next dev",
+    "build": "cross-env NEXT_TELEMETRY_DISABLED=1 next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^4.22.0",
+    "next": "^15.5.21",
+    "next-sanity": "^11.4.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "sanity": "^4.22.0",
+    "styled-components": "^6.4.4"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.6",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
+    "eslint": "^9",
+    "eslint-config-next": "^15.5.21",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
