@@ -8,7 +8,7 @@ export default async function Home() {
   return (
     <main className="flex-1">
       <Hero settings={settings} />
-      <TileGrid />
+      <TileGrid githubUrl={settings.githubUrl} />
     </main>
   )
 }

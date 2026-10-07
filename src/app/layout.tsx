@@ -3,6 +3,7 @@ import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
+import { SmoothScroll } from "@/components/smooth-scroll";
 import { getSiteSettings } from "@/lib/get-content";
 
 const sourceSans = Source_Sans_3({
@@ -26,6 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${sourceSans.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <SmoothScroll />
         <Nav name={settings.name} />
         {children}
         <Footer settings={settings} />

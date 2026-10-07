@@ -1,6 +1,8 @@
 import type {Metadata} from 'next'
 import Image from 'next/image'
 
+import {ArrowLink} from '@/components/arrow-link'
+
 export const metadata: Metadata = {
   title: 'About Me — Mateo Pereira',
 }
@@ -9,21 +11,30 @@ export default function AboutPage() {
   return (
     <main className="flex-1">
       {/* Hero */}
-      <header className="relative overflow-hidden border-b border-white/10">
-        <div className="mx-auto w-full max-w-6xl px-6 pt-24 pb-20 sm:pt-32 sm:pb-28">
+      <header className="relative isolate overflow-hidden border-b border-white/10">
+        <Image
+          src="/images/machu_picchu.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="-z-20 object-cover object-[center_60%]"
+        />
+        {/* Darken toward the text side and fade into the page so the heading stays legible */}
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-background/90 via-background/55 to-background/20"
+        />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-transparent to-transparent" />
+
+        <div className="mx-auto w-full max-w-6xl px-6 pt-32 pb-28 sm:pt-44 sm:pb-40">
           <p className="text-xs font-semibold tracking-[0.35em] text-accent uppercase">Get to know</p>
           <h1 className="mt-6 text-6xl leading-[0.9] tracking-tight sm:text-8xl lg:text-9xl">
-            <span className="font-light text-foreground/70">About</span>{' '}
+            <span className="font-light text-foreground/85">About</span>{' '}
             <span className="font-bold">Me</span>
           </h1>
           <span className="mt-8 block h-[2px] w-16 bg-accent" />
         </div>
-        <span
-          aria-hidden
-          className="pointer-events-none absolute -top-10 right-[-2rem] text-[14rem] leading-none font-bold text-white/[0.03] select-none sm:text-[22rem]"
-        >
-          MP
-        </span>
       </header>
 
       {/* Who I am */}
@@ -112,6 +123,10 @@ export default function AboutPage() {
           </section>
         )
       })}
+
+      <section className="mx-auto flex w-full max-w-6xl justify-center px-6 py-20 sm:py-24">
+        <ArrowLink href="/present-day">See what I&rsquo;m up to today</ArrowLink>
+      </section>
     </main>
   )
 }

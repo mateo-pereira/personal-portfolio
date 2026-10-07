@@ -78,19 +78,19 @@ export function Nav({name}: {name: string}) {
             aria-label="Close menu"
             tabIndex={open ? 0 : -1}
             onClick={() => setOpen(false)}
-            className="p-2 text-2xl leading-none text-foreground/70 transition-colors hover:text-foreground"
+            className="p-[10px] text-[31px] leading-none text-foreground/70 transition-colors hover:text-foreground"
           >
             ×
           </button>
         </div>
-        <ul className="flex flex-1 flex-col items-center justify-center gap-2">
+        <ul className="flex flex-1 flex-col items-center justify-center gap-[10px]">
           {links.map((link) => (
-            <li key={link.href} className="w-full max-w-xs border-t border-white/10 first:border-t-0">
+            <li key={link.href} className="w-full max-w-[416px] border-t border-white/10 first:border-t-0">
               <Link
                 href={link.href}
                 tabIndex={open ? 0 : -1}
                 onClick={() => setOpen(false)}
-                className="block py-4 text-center text-sm font-semibold tracking-[0.25em] uppercase transition hover:text-foreground/70"
+                className="block py-[21px] text-center text-[18px] font-semibold tracking-[0.25em] uppercase transition hover:text-foreground/70"
               >
                 {link.label}
               </Link>

@@ -1,5 +1,6 @@
 import type {Metadata} from 'next'
 
+import {ArrowLink} from '@/components/arrow-link'
 import {getSiteSettings} from '@/lib/get-content'
 
 export const metadata: Metadata = {
@@ -43,6 +44,12 @@ export default async function ResumePage() {
             .
           </p>
         </object>
+
+        <div className="mt-16 flex justify-center sm:mt-20">
+          <ArrowLink href="/" direction="left">
+            Back to home
+          </ArrowLink>
+        </div>
       </div>
     </main>
   )
