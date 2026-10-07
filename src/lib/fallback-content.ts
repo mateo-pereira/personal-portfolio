@@ -3,7 +3,7 @@ import type {EducationItem, ExperienceItem, ProjectItem, SiteSettings, SkillGrou
 export const fallbackSiteSettings: SiteSettings = {
   name: 'Mateo Pereira',
   role: 'Software Engineer',
-  tagline: 'Building reliable software, one deploy at a time.',
+  tagline: 'Computer Enthusiast, Programmer, and Problem Solver',
   summary:
     'Software Engineer at Wells Fargo working on Java applications, CI/CD automation, and internal tooling. Rutgers University Computer Science graduate.',
   email: 'mateo.pereira2002@gmail.com',

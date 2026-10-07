@@ -26,7 +26,7 @@ export function ProjectList({items}: {items: ProjectItem[]}) {
           {item.tags && item.tags.length > 0 && (
             <ul className="mt-3 flex flex-wrap gap-2">
               {item.tags.map((tag) => (
-                <li key={tag} className="rounded-full border border-black/10 px-2 py-0.5 text-xs dark:border-white/10">
+                <li key={tag} className="rounded-full border border-foreground/15 px-2 py-0.5 text-xs">
                   {tag}
                 </li>
               ))}
