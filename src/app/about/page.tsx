@@ -125,7 +125,7 @@ export default function AboutPage() {
       })}
 
       <section className="mx-auto flex w-full max-w-6xl justify-center px-6 py-20 sm:py-24">
-        <ArrowLink href="/present-day">See what I&rsquo;m up to today</ArrowLink>
+        <ArrowLink href="/mindset">Explore my mindset</ArrowLink>
       </section>
     </main>
   )

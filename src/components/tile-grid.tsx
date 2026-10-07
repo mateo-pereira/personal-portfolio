@@ -8,7 +8,10 @@ type Tile = {
   /** Background photo; tiles without one get the "WIP" placeholder art */
   image?: string
   tint: string
-  imagePosition?: string
+  /** How the image fits its frame (default: object-cover, centered) */
+  imageClass?: string
+  /** Where the image frame sits in the tile (default: inset-0); can extend past the tile to shift the art */
+  imageFrame?: string
   external?: boolean
 }
 
@@ -22,7 +25,7 @@ export function TileGrid({githubUrl}: {githubUrl?: string}) {
       title: 'About Me',
       subtitle: 'And my story',
       image: '/images/mountain_pic.jpg',
-      imagePosition: 'object-[center_65%]',
+      imageClass: 'object-cover object-[center_65%]',
       tint: 'bg-[#6f7bbf]',
     },
     {
@@ -30,7 +33,7 @@ export function TileGrid({githubUrl}: {githubUrl?: string}) {
       title: 'Resume',
       subtitle: 'Experience, projects & skills',
       image: '/images/resume_page.png',
-      imagePosition: 'object-top',
+      imageClass: 'object-cover object-top',
       tint: 'bg-[#4f9fbf]',
     },
     ...(githubUrl
@@ -46,9 +49,13 @@ export function TileGrid({githubUrl}: {githubUrl?: string}) {
         ]
       : []),
     {
-      href: '/present-day',
-      title: 'Present Day',
-      subtitle: 'What I’m up to now',
+      href: '/mindset',
+      title: 'Mindset',
+      subtitle: 'How I think and grow',
+      image: '/images/luck_graph.png',
+      // Same shape as the tile, so extend the frame above it to lift "Opportunity" clear of the title
+      imageClass: 'object-contain object-top',
+      imageFrame: 'inset-x-0 -top-[32%] bottom-0 bg-white',
       tint: 'bg-[#c9a06b]',
     },
   ]
@@ -65,13 +72,18 @@ export function TileGrid({githubUrl}: {githubUrl?: string}) {
           } ${tiles.length % 2 === 1 && i === tiles.length - 1 ? 'md:col-span-5' : ''}`}
         >
           {tile.image ? (
-            <Image
-              src={tile.image}
-              alt=""
-              fill
-              sizes="(min-width: 768px) 60vw, 100vw"
-              className={`-z-20 object-cover grayscale transition-transform duration-500 group-hover:scale-105 ${tile.imagePosition ?? ''}`}
-            />
+            <div
+              aria-hidden
+              className={`absolute -z-20 transition-transform duration-500 group-hover:scale-105 ${tile.imageFrame ?? 'inset-0'}`}
+            >
+              <Image
+                src={tile.image}
+                alt=""
+                fill
+                sizes="(min-width: 768px) 60vw, 100vw"
+                className={`grayscale ${tile.imageClass ?? 'object-cover'}`}
+              />
+            </div>
           ) : (
             <WipArt />
           )}
